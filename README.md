@@ -1,6 +1,38 @@
 # ToDoListAngular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+A simple **ToDo List application** built with Angular.  
+This project allows you to manage tasks across **two separate lists**, with the ability to add, delete, and display tasks.
+
+---
+
+## ✨ Features
+
+- ➕ Add new tasks to each list
+- ❌ Delete tasks from lists
+- 📋 Display all tasks clearly
+- 🗂️ Manage tasks in **two separate lists** for better organization
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone <repo-url>
+   ```
+2. **Install dependencies**
+   npm install
+
+3.**Start the development server**
+ng serve
+
+4.**Open in your browser**
+
+Navigate to http://localhost:4200
+
+The app will automatically reload whenever you make changes to the source files.
 
 ## Development server
 
