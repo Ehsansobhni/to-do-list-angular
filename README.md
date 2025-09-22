@@ -8,9 +8,9 @@ This project allows you to manage tasks across **two separate lists**, with the 
 ## ✨ Features
 
 - ➕ Add new tasks to each list
+- ✅ Mark tasks as completed with a checkbox (completed tasks are crossed out)
 - ❌ Delete tasks from lists
 - 📋 Display all tasks clearly
-- 🗂️ Manage tasks in **two separate lists** for better organization
 
 ---
 
