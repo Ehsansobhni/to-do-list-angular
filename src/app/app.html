@@ -1,25 +1,27 @@
-<h1>To-Do List</h1>
-<input
-  type="text"
-  placeholder="Add a new task"
-  [(ngModel)]="task"
-  (keyup.enter)="addTask()"
-/>
-<button (click)="addTask()">Add Task</button>
+<div class="container">
+  <h1 class="title">To-Do List</h1>
 
-@for (task of taskList; track task.id) {
-  <ul class="task-list">
-    <li>
-      {{ task.id }}
-    </li>
-    <li>
-      {{ task.name }}
-    </li>
-    <li>
-      <button (click)="deleteTask(task.id)">Delete</button>
-    </li>
-  </ul>
-}
+  <div class="input-group">
+    <input
+      type="text"
+      placeholder="Add a new task"
+      [(ngModel)]="task"
+      (keyup.enter)="addTask()"
+    />
+    <button class="btn-add" (click)="addTask()">Add Task</button>
+  </div>
+
+  <div class="task-list">
+    @for (task of taskList; track task.id) {
+      <div class="task-item">
+        <span class="task-id">#{{ task.id }}</span>
+        <span class="task-name">{{ task.name }}</span>
+        <button class="btn-delete" (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    }
+  </div>
+</div>
+
 <!-- 
 
 <div>
