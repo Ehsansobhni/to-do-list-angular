@@ -8,7 +8,9 @@
       [(ngModel)]="task"
       (keyup.enter)="addTask()"
     />
-    <button class="btn-add" (click)="addTask()">Add Task</button>
+    <button class="btn-add" (click)="addTask()" [disabled]="!task.trim()">
+      Add Task
+    </button>
   </div>
 
   <div class="task-list">

@@ -43,6 +43,12 @@
   background: #218838;
 }
 
+.btn-add:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .task-list {
   display: flex;
   flex-direction: column;
