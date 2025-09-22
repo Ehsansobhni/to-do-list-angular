@@ -3,29 +3,30 @@ import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-root",
+  standalone: true,
   imports: [FormsModule],
   templateUrl: "./app.html",
   styleUrl: "./app.css",
 })
 export class App {
-  protected readonly title = signal("to-do-list-angular");
-  task = "";
-  taskList: { id: number; name: string }[] = [];
+  protected readonly title = signal("To-Do List");
+  task: string = "";
+  taskList: { id: number; name: string; completed: boolean }[] = [];
 
   addTask() {
-    let newId = 1;
-    if (this.taskList.length > 0) {
-      const lastTask = this.taskList[this.taskList.length - 1];
-      console.log(lastTask);
-      newId = lastTask.id + 1;
-    }
-    this.taskList.push({ id: newId, name: this.task });
-    // this.taskList.push({ id: this.taskList.length + 1, name: this.task });
+    const trimmedTask = this.task.trim();
+    if (!trimmedTask) return;
+
+    const newId =
+      this.taskList.length > 0
+        ? this.taskList[this.taskList.length - 1].id + 1
+        : 1;
+
+    this.taskList.push({ id: newId, name: trimmedTask, completed: false });
     this.task = "";
-    // console.log(this.taskList);
   }
+
   deleteTask(id: number) {
-    this.taskList = this.taskList.filter((item) => item.id !== id);
-    console.log(this.taskList);
+    this.taskList = this.taskList.filter((task) => task.id !== id);
   }
 }

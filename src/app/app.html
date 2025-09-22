@@ -14,22 +14,15 @@
   <div class="task-list">
     @for (task of taskList; track task.id) {
       <div class="task-item">
+        <input type="checkbox" [(ngModel)]="task.completed" />
+
         <span class="task-id">#{{ task.id }}</span>
-        <span class="task-name">{{ task.name }}</span>
+        <h3 class="task-name" [class.completed]="task.completed">
+          {{ task.name }}
+        </h3>
+
         <button class="btn-delete" (click)="deleteTask(task.id)">Delete</button>
       </div>
     }
   </div>
 </div>
-
-<!-- 
-
-<div>
-    <input
-      type="checkbox"
-      [(ngModel)]="task.completed"
-      (change)="toggleTask(task.id)"
-    />
-    <span [class.completed]="task.completed">{{ task.name }}</span>
-    <button (click)="deleteTask(task.id)">Delete</button>
-  </div> -->

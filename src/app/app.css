@@ -26,7 +26,6 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  outline: none;
   font-size: 1rem;
 }
 
@@ -52,12 +51,13 @@
 
 .task-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 10px;
   background: white;
   padding: 10px 14px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
 }
 
 .task-id {
@@ -66,12 +66,14 @@
 }
 
 .task-name {
-  flex: 1;
-  margin-left: 10px;
   color: #333;
 }
 
-/* Delete button */
+.task-name.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
 .btn-delete {
   background: #dc3545;
   color: white;
@@ -83,5 +85,5 @@
 }
 
 .btn-delete:hover {
-  background: #c82333;
+  background: #e87580;
 }
