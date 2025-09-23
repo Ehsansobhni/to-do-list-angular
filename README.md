@@ -25,13 +25,16 @@ Follow these steps to run the project locally:
    ```
 
 2. **Install dependencies**
+
    npm install
 
 3. **Start the development server**
+
    ng serve
 
-4. **Open in your browser**  
-   Navigate to [http://localhost:4200](http://0.0.0.0:4200) on your computer.  
+4. **Open in your browser**
+
+   Navigate to [http://localhost:4200] (http://0.0.0.0:4200) on your computer.  
    💡 You can also access the app from other devices on the same local network using your machine's local IP address, e.g., `http://192.168.1.10:4200`.
 
 The app will automatically reload whenever you make changes to the source files.
