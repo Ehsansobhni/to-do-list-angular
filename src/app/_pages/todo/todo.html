@@ -16,9 +16,10 @@
   <div class="task-list">
     @for (task of taskList; track task.id) {
       <div class="task-item">
-        <input type="checkbox" [(ngModel)]="task.completed" />
-
-        <span class="task-id">{{ task.id }}</span>
+        <div>
+          <span class="task-id">{{ task.id }} </span>
+          <input type="checkbox" [(ngModel)]="task.completed" />
+        </div>
         <h3 class="task-name" [class.completed]="task.completed">
           {{ task.name }}
         </h3>
