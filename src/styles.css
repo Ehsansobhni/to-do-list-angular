@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  padding: 10px;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
+}
