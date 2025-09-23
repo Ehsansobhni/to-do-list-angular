@@ -1,0 +1,19 @@
+<div class="login-container">
+  <h2 class="login-title">Login a To-Do List</h2>
+
+  <input type="text" placeholder="Username" [(ngModel)]="username" />
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="password"
+    (keyup.enter)="login()"
+  />
+
+  <button
+    class="btn-login"
+    (click)="login()"
+    [disabled]="!username.trim() || !password.trim()"
+  >
+    Login
+  </button>
+</div>
