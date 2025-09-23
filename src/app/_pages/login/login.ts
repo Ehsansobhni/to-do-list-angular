@@ -20,7 +20,7 @@ export class Login {
       localStorage.setItem("loggedIn", "true");
       this.router.navigate(["/todo"]);
     } else {
-      alert("Invalid credentials!");
+      alert("نام کاربری و یا پسورد اشتباه است");
     }
   }
 }
