@@ -5,27 +5,32 @@
     <input
       type="text"
       placeholder="Add a new task"
-      [(ngModel)]="task"
+      [(ngModel)]="taskName"
       (keyup.enter)="addTask()"
     />
-    <button class="btn-add" (click)="addTask()" [disabled]="!task.trim()">
+    <button class="btn-add" (click)="addTask()" [disabled]="!taskName.trim()">
       Add Task
     </button>
   </div>
 
   <div class="task-list">
-    @for (task of taskList; track task.id) {
+    <div *ngFor="let task of tasks">
       <div class="task-item">
         <div>
-          <span class="task-id">{{ task.id }} </span>
-          <input type="checkbox" [(ngModel)]="task.completed" />
+          <span class="task-id">#{{ task.id }}</span>
+          <input
+            type="checkbox"
+            [checked]="task.completed"
+            (change)="toggleTask(task)"
+          />
         </div>
+
         <h3 class="task-name" [class.completed]="task.completed">
           {{ task.name }}
         </h3>
 
         <button class="btn-delete" (click)="deleteTask(task.id)">Delete</button>
       </div>
-    }
+    </div>
   </div>
 </div>
