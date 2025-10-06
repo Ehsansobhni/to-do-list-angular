@@ -28,10 +28,14 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environment.ts",
-                  "with": "src/environment.prod.ts"
+                  "replace": "src/environments.ts",
+                  "with": "src/environments.prod.ts"
                 }
               ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractLicenses": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -43,8 +47,7 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
