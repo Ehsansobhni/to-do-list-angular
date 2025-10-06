@@ -1,31 +1,48 @@
-import { Component } from "@angular/core";
+// _pages/todo/todo.ts
+import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { TodoService } from "../../_services/todo.service";
 
 @Component({
   selector: "app-todo",
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: "./todo.html",
   styleUrls: ["./todo.css"],
 })
-export class Todo {
-  task: string = "";
-  taskList: { id: number; name: string; completed: boolean }[] = [];
+export class TodoComponent implements OnInit {
+  tasks: any[] = [];
+  taskName = "";
+
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit() {
+    this.loadTasks();
+  }
+
+  loadTasks() {
+    this.todoService.getTodo().subscribe((data) => (this.tasks = data));
+  }
 
   addTask() {
-    const trimmedTask = this.task.trim();
-    if (!trimmedTask) return;
+    if (!this.taskName.trim()) return;
 
-    const newId =
-      this.taskList.length > 0
-        ? this.taskList[this.taskList.length - 1].id + 1
-        : 1;
-
-    this.taskList.push({ id: newId, name: trimmedTask, completed: false });
-    this.task = "";
+    this.todoService
+      .addTodo({ name: this.taskName, completed: false })
+      .subscribe(() => {
+        this.taskName = "";
+        this.loadTasks();
+      });
   }
 
   deleteTask(id: number) {
-    this.taskList = this.taskList.filter((task) => task.id !== id);
+    this.todoService.deleteTodo(id).subscribe(() => this.loadTasks());
+  }
+
+  toggleTask(task: any) {
+    this.todoService
+      .updateTodo(task.id, { completed: !task.completed })
+      .subscribe(() => this.loadTasks());
   }
 }
