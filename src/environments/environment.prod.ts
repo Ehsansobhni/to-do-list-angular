@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: "https://yourserver.com/tasks",
+  apiUrl: "https://2doo.liara.run/tasks",
 };
 // Replace with your production API URL
