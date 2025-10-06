@@ -16,7 +16,7 @@ export class Login {
   constructor(private router: Router) {}
 
   login() {
-    if (this.username === "admin" && this.password === "1234") {
+    if (this.username === "Admin" && this.password === "Ehsan") {
       localStorage.setItem("loggedIn", "true");
       this.router.navigate(["/todo"]);
     } else {
